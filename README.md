@@ -18,7 +18,7 @@ u will then need to replace the shit in the client so
     private static final String API_KEY = "your_secret_api_key_here";
     private static final String SERVER_ADDRESS = "http://127.0.0.1:3030";
 ```
-in main.java to ur shit
+in main.java to ur shit, afterwards ur done!
 
 ## what makes it better than vil's hwid lock?
 my reasons are pretty simple, though vil's hwid is probably made for simplicity and stuff idk whatever
