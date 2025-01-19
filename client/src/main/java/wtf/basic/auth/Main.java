@@ -40,7 +40,7 @@ public class Main {
 
             URL url = new URL(getSERVER_ADDRESS());
             String serverIp = url.getHost();
-            int serverPort = url.getPort() != -1 ? url.getPort() : 3030;
+            int serverPort = url.getPort() != -1 ? url.getPort() : 3030; // change this to ur port, autistic but if ur using domain yea
 
             try (Socket socket = new Socket(serverIp, serverPort);
                  PrintWriter out = new PrintWriter(socket.getOutputStream(), true)) {

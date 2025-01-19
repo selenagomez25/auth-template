@@ -4,6 +4,7 @@ use log::{info, error};
 use std::fs;
 use std::sync::{Arc, Mutex};
 use warp::Filter;
+use rand::Rng; 
 
 #[derive(Clone, Serialize, Deserialize)]
 struct HwidList {
@@ -16,6 +17,7 @@ struct Config {
     embed_success_message: String,
     embed_failure_message: String,
     api_key: String,
+    port: u16,
 }
 
 #[derive(Clone, Serialize, Deserialize)]
@@ -80,7 +82,15 @@ fn load_valid_hwids() -> HwidList {
 
 fn load_config() -> Config {
     let data = fs::read_to_string("config.yaml").expect("Unable to read config.yaml");
-    serde_yaml::from_str(&data).expect("Unable to parse YAML")
+    let mut config: Config = serde_yaml::from_str(&data).expect("Unable to parse YAML");
+
+    // all this does is settings the port to a random number if ur port is 0
+    if config.port == 0 {
+        let mut rng = rand::thread_rng();
+        config.port = rng.gen_range(1024..65535)
+    }
+
+    config
 }
 
 #[tokio::main]
@@ -164,8 +174,8 @@ async fn main() {
 
     let routes = authenticate_hwid;
 
-    println!("Server is running on http://127.0.0.1:3030");
-    warp::serve(routes).run(([127, 0, 0, 1], 3030)).await;
+    println!("Server is running on http://127.0.0.1:{}", config.port);
+    warp::serve(routes).run(([127, 0, 0, 1], config.port)).await;
 }
 
 fn with_valid_hwids(
