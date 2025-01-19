@@ -1,6 +1,6 @@
 use log::{info, error};
 use reqwest;
-use crate::config::{Config};
+use crate::config::Config;
 
 #[derive(Debug)]
 pub struct WebhookEmbedBuilder {
