@@ -21,11 +21,10 @@ u will then need to replace the shit in the client so
 in main.java to ur shit, afterwards ur done!
 
 ## recommended vps
-for those asking on which vps to get, these are some commonly used ones.
-https://www.vultr.com/ 
-https://cloudfanatic.net/
-https://cloud.linode.com/
-these three are all pretty good. you only need the cheapest option which is usually 2-3$, but if u want u could get more
+here are some commonly used vps providers. the cheapest option, which usually costs around $2-3, should suffice, but you can opt for more if needed.
+* [vultr](https://www.vultr.com/ )
+* [cloudfanatic](https://cloudfanatic.net/)
+* [linode](https://cloud.linode.com/)
 
 ## what makes it better than vil's hwid lock?
 my reasons are pretty simple, though vil's hwid is probably made for simplicity and stuff idk whatever
