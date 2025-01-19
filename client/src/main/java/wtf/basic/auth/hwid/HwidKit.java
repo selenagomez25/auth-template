@@ -1,9 +1,5 @@
 package wtf.basic.auth.hwid;
 
-/**
- * Created: 1/19/2025
- */
-
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
