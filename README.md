@@ -32,6 +32,9 @@ my reasons are pretty simple, though vil's hwid is probably made for simplicity 
 2. it requires a vps! this costs around $2/m
 3. client depends on some things like lombok, gson, and okhttp in order to use the client
 4. and some more stuff that im lazy to list
+   
+## license
+this project is licensed under the gnu general public license (gpl) license - see the [LICENSE](https://github.com/selenagomez25/auth-template/blob/master/LICENSE) file for details.
 
 ## contributing
 contributions are welcome! feel free to submit a pull request whenever.
