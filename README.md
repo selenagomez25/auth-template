@@ -3,7 +3,7 @@ hey guys, decided to make an open source hwid lock. **this is NOT secure**, i ju
 the server is written in rust, and the client is written in java. **you can easily port the client to your fabric/forge mod.**
 this is no more than an overly complicated pastebin auth lol, so dont think this is uncrackable and make a ton of issues pls
 
-## installation
+## setting up the server
 first of all, we gotta clone the repo (install [git bash](https://git-scm.com/downloads) for this). install [rust](https://www.rust-lang.org/) aswell
 ```
 git clone https://github.com/selenagomez25/auth-template.git
@@ -13,12 +13,6 @@ cargo build --release
 ```
 after u run those commands, extract the `auth-template.exe` in `server\target\release` and copy config.yaml and hwids.yaml
 put these files in your vps using some type of [ftp client](https://filezilla-project.org/) and then run `./auth-template.exe` on ur vps using some type of [ssh client](https://termius.com/).
-u will then need to replace the shit in the client so
-```java
-    private static final String API_KEY = "your_secret_api_key_here";
-    private static final String SERVER_ADDRESS = "http://127.0.0.1:3030";
-```
-in main.java to ur shit, afterwards ur done!
 
 ## recommended vps
 here are some commonly used vps providers. the cheapest option, which usually costs around $2-3, should suffice, but you can opt for more if needed.
