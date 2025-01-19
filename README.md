@@ -22,11 +22,9 @@ in main.java to ur shit, afterwards ur done!
 
 ## recommended vps
 for those asking on which vps to get, these are some commonly used ones.
-```
 https://www.vultr.com/ 
 https://cloudfanatic.net/
 https://cloud.linode.com/
-```
 these three are all pretty good. you only need the cheapest option which is usually 2-3$, but if u want u could get more
 
 ## what makes it better than vil's hwid lock?
