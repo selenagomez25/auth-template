@@ -1,5 +1,13 @@
 webhook_url: "https://discord.com/api/webhooks/1330286428827160678/FexzZmMpZDvOJCXK-vHF0CUFgOUO_20gqS-FAx8tqICsEqkVicRnVee2ih4kofcrRtVc"
-embed_success_message: "Authentication succeeded!"
-embed_failure_message: "Authentication failed!"
 api_key: "your_secret_api_key_here"
 port: 3030
+
+webhook_embed:
+  title_template: "{status} - HWID Authentication"
+  description_template: |
+    🔒 Authentication Details:
+    • HWID: `{hwid}`
+    • Username: `{username}`
+    • IP Address: `{ip}`
+  color_success: 0x008000 # green hex, if u dont know how this works just add a 0x then ur hex code
+  color_failure: 0xFF0000 # red hex, if u dont know how this works just add a 0x then ur hex code
