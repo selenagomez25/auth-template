@@ -1,0 +1,4 @@
+webhook_url: "https://discord.com/api/webhooks/1330286428827160678/FexzZmMpZDvOJCXK-vHF0CUFgOUO_20gqS-FAx8tqICsEqkVicRnVee2ih4kofcrRtVc"
+embed_success_message: "Authentication succeeded!"
+embed_failure_message: "Authentication failed!"
+api_key: "your_secret_api_key_here"

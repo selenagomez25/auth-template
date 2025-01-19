@@ -1,0 +1,7 @@
+---
+valid_hwids:
+  - "hwid#1"
+  - "hwid#2"
+  - "hwid#3"
+  - test-hwid-12345
+  - test-hwid-12345
