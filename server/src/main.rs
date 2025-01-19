@@ -76,8 +76,10 @@ async fn send_webhook_embed(webhook_url: &str, title: &str, description: &str, c
 }
 
 fn load_valid_hwids() -> HwidList {
-    let data = fs::read_to_string("hwids.yaml").expect("Unable to read hwids.yaml");
-    serde_yaml::from_str(&data).expect("Unable to parse YAML")
+    let data = fs::read_to_string("hwids.yaml")
+        .expect("Unable to read hwids.yaml");
+    serde_yaml::from_str(&data)
+        .expect("Unable to parse YAML")
 }
 
 fn load_config() -> Config {
@@ -93,19 +95,32 @@ fn load_config() -> Config {
     config
 }
 
+fn is_valid_api_key(provided_key: &str, config: &Config) -> bool {
+    provided_key == config.api_key
+}
+
 #[tokio::main]
 async fn main() {
-    env_logger::init();
-
     let config = Arc::new(load_config());
     let valid_hwids = Arc::new(Mutex::new(load_valid_hwids()));
 
     let authenticate_hwid = warp::path("auth")
         .and(warp::post())
+        .and(warp::header::<String>("X-API-Key"))
         .and(warp::body::json())
         .and(with_valid_hwids(valid_hwids.clone()))
         .and(with_config(config.clone()))
-        .map(move |user_info: UserInfo, valid_hwids: Arc<Mutex<HwidList>>, config: Arc<Config>| {
+        .map(move |api_key: String, user_info: UserInfo, valid_hwids: Arc<Mutex<HwidList>>, config: Arc<Config>| {
+            if !is_valid_api_key(&api_key, &config) {
+                return warp::reply::with_status(
+                    warp::reply::json(&"invalid api key"), 
+                    warp::http::StatusCode::UNAUTHORIZED
+                );
+            }
+
+            let reloaded_hwids = load_valid_hwids();
+            *valid_hwids.lock().unwrap() = reloaded_hwids;
+
             let hwid_list = valid_hwids.lock().unwrap();
             let success = hwid_list.valid_hwids.contains(&user_info.hwid);
             let message = if success {

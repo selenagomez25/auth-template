@@ -14,6 +14,10 @@ public class ApiResponse {
         this.statusCode = statusCode;
     }
 
+    public boolean isSuccess() {
+        return success;
+    }
+
     @Override
     public String toString() {
         return String.format("ApiResponse{success=%b, body='%s', statusCode=%d}", success, body, statusCode);
