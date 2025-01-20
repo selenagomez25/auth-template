@@ -30,7 +30,7 @@ my reasons are pretty simple, though vil's hwid is probably made for simplicity 
 ## what makes it worse than vil's hwid lock?
 1. server is coded in rust...
 2. it requires a vps! this costs around $2/m
-3. client depends on some things like lombok, gson, and okhttp in order to use the client
+3. client depends on gson, and okhttp in order to use the client
 4. and some more stuff that im lazy to list
    
 ## license
